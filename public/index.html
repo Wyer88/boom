@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refined Homepage</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <div class="logo">MyApp</div>
+        <div class="menu">
+            <select id="page-selector">
+                <option value="/">Home</option>
+                <option value="/about">About</option>
+                <option value="/contact">Contact</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="info-section">
+            <div class="graphic"></div>
+            <h1>Welcome to MyApp</h1>
+            <p>Discover something new with our AI-driven tools.</p>
+        </section>
+
+        <section class="upload-area">
+            <h2>Upload Your Files</h2>
+            <div class="drop-zone">Drag & Drop or Click to Upload</div>
+            <input type="file" id="file-upload" name="file-upload" hidden>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById("page-selector").addEventListener("change", function() {
+            window.location.href = this.value;
+        });
+    </script>
+</body>
+</html>
