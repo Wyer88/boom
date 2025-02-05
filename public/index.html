@@ -34,8 +34,13 @@
     </div>
 
     <script>
+        const allowedUrls = ["/", "/about", "/contact"];
         document.getElementById("page-selector").addEventListener("change", function() {
-            window.location.href = this.value;
+            if (allowedUrls.includes(this.value)) {
+                window.location.href = this.value;
+            } else {
+                console.error("Invalid URL selected");
+            }
         });
     </script>
 </body>
