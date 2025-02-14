@@ -31,7 +31,7 @@ const About = () => {
               </div>
               <div className="col-md-6 text-center">
                 <img 
-                  src="/images/MoconLogoUse.png" 
+                  src={`${process.env.PUBLIC_URL}/images/MoconLogoUse.png`} 
                   height="300" 
                   width="300" 
                   alt="MoCon Logo" 
