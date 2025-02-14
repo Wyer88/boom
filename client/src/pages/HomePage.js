@@ -51,7 +51,7 @@ const HomePage = () => {
               </div>
               <div className="col-lg-6 text-center">
                 <img 
-                  src="/images/MoconLogoUse.png" 
+                  src={`${process.env.PUBLIC_URL}/images/MoconLogoUse.png`} 
                   alt="MoCon Logo"
                   className="img-fluid"
                   style={{ maxWidth: "250px", height: "auto" }}
