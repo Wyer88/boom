@@ -30,12 +30,12 @@ const About = () => {
                 </p>
               </div>
               <div className="col-md-6 text-center">
-              <img 
-                src={`${process.env.PUBLIC_URL}/images/MoconLogoUse.png`} 
-                alt="MoCon Logo"
-                className="img-fluid"
-                style={{ maxWidth: "250px", height: "auto" }} 
-              />
+                <img 
+                  src="https://wyer88.github.io/boom/images/MoconLogoUse.png" 
+                  alt="MoCon Logo"
+                  className="img-fluid"
+                  style={{ maxWidth: "250px", height: "auto" }} 
+                />
               </div>
             </div>
           </div>
@@ -70,9 +70,9 @@ const About = () => {
             <h2 className="text-center mb-5">Meet Our Leadership</h2>
             <div className="row g-4">
               {[
-                { name: "A Wyer", role: "CEO & Founder", img: `${process.env.PUBLIC_URL}/images/Wyer_About.png` },
-                { name: "Fable", role: "Chief Technology Officer", img: `${process.env.PUBLIC_URL}/images/Fable_About.png` },
-                { name: "Benson", role: "Chief Compliance Officer", img: `${process.env.PUBLIC_URL}/images/Benson_About.png` },
+                { name: "A Wyer", role: "CEO & Founder", img: "https://wyer88.github.io/boom/images/Wyer_About.png" },
+                { name: "Fable", role: "Chief Technology Officer", img: "https://wyer88.github.io/boom/images/Fable_About.png" },
+                { name: "Benson", role: "Chief Compliance Officer", img: "https://wyer88.github.io/boom/images/Benson_About.png" },
               ].map((leader, index) => (
                 <div key={index} className="col-md-4">
                   <div className="card h-100 border-0 shadow-sm">
