@@ -50,8 +50,8 @@ const HomePage = () => {
                 <Link to="/why-mocon" className="btn btn-primary btn-lg mt-4">Discover MoCon</Link>
               </div>
               <div className="col-lg-6 text-center">
-              <img 
-                  src="https://wyer88.github.io/boom/images/MoconLogoUse.png" 
+                <img 
+                  src={`${baseUrl}/images/MoconLogoUse.png`} 
                   alt="MoCon Logo"
                   className="img-fluid"
                   style={{ maxWidth: "250px", height: "auto" }} 
