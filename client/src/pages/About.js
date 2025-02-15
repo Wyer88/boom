@@ -30,13 +30,12 @@ const About = () => {
                 </p>
               </div>
               <div className="col-md-6 text-center">
-                <img 
-                  src={`${process.env.PUBLIC_URL}/images/MoconLogoUse.png`} 
-                  height="300" 
-                  width="300" 
-                  alt="MoCon Logo" 
-                  className="img-fluid rounded shadow" 
-                />
+              <img 
+                src={`${process.env.PUBLIC_URL}/images/MoconLogoUse.png`} 
+                alt="MoCon Logo"
+                className="img-fluid"
+                style={{ maxWidth: "250px", height: "auto" }} 
+              />
               </div>
             </div>
           </div>
