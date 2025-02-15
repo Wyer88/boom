@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
+const baseUrl = process.env.PUBLIC_URL || "";
+
 const About = () => {
   return (
     <>
@@ -72,7 +74,7 @@ const About = () => {
               {[
                 { name: "A Wyer", role: "CEO & Founder", img: `${baseUrl}/images/Wyer_About.png` },
                 { name: "Fable", role: "Chief Technology Officer", img: `${baseUrl}/images/Fable_About.png` },
-                { name: "Benson", role: "Chief Compliance Officer", img: `${baseUrl}/images/Benson_About.png` },
+                { name: "Benson", role: "Chief Compliance Officer", img: `${baseUrl}/images/Benson_About.png` },                
               ].map((leader, index) => (
                 <div key={index} className="col-md-4">
                   <div className="card h-100 border-0 shadow-sm">

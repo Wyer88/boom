@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 
+const baseUrl = process.env.PUBLIC_URL || "";
+
 const HomePage = () => {
   const [dragActive, setDragActive] = useState(false);
 
@@ -50,7 +52,7 @@ const HomePage = () => {
                 <Link to="/why-mocon" className="btn btn-primary btn-lg mt-4">Discover MoCon</Link>
               </div>
               <div className="col-lg-6 text-center">
-                <img 
+              <img 
                   src={`${baseUrl}/images/MoconLogoUse.png`} 
                   alt="MoCon Logo"
                   className="img-fluid"
