@@ -71,9 +71,9 @@ const About = () => {
             <h2 className="text-center mb-5">Meet Our Leadership</h2>
             <div className="row g-4">
               {[
-                { name: "A Wyer", role: "CEO & Founder", img: "/images/Wyer_About.png" },
-                { name: "Fable", role: "Chief Technology Officer", img: "/images/Fable_About.png" },
-                { name: "Benson", role: "Chief Compliance Officer", img: "/images/Benson_About.png" },
+                { name: "A Wyer", role: "CEO & Founder", img: `${process.env.PUBLIC_URL}/images/Wyer_About.png` },
+                { name: "Fable", role: "Chief Technology Officer", img: `${process.env.PUBLIC_URL}/images/Fable_About.png` },
+                { name: "Benson", role: "Chief Compliance Officer", img: `${process.env.PUBLIC_URL}/images/Benson_About.png` },
               ].map((leader, index) => (
                 <div key={index} className="col-md-4">
                   <div className="card h-100 border-0 shadow-sm">
