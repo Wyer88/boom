@@ -1,18 +1,17 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
-import WhyMoCon from "./pages/WhyMoCon";
-import UseCases from "./pages/UseCases";
-import Pricing from "./pages/Pricing";
-import About from "./pages/About";
+import { Routes, Route } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+import HomePage from "./pages/HomePage"
+import WhyMoCon from "./pages/WhyMoCon"
+import UseCases from "./pages/UseCases"
+import Pricing from "./pages/Pricing"
+import About from "./pages/About"
 
 function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/why-mocon" element={<WhyMoCon />} />
@@ -23,8 +22,9 @@ function App() {
       </main>
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
+
 

@@ -1,13 +1,35 @@
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+"use client"
 
-const baseUrl = process.env.PUBLIC_URL || "";
+import { Link } from "react-router-dom"
+import Navbar from "../components/Navbar"
+import { useEffect, useState } from "react"
 
 const About = () => {
+  const [baseUrl, setBaseUrl] = useState("")
+
+  useEffect(() => {
+    // Safer environment detection without exposing localhost IP
+    const isGitHubPages = window.location.hostname.includes("github.io")
+    const isDevelopment = process.env.NODE_ENV === "development"
+
+    if (isGitHubPages) {
+      setBaseUrl("/boom") // GitHub Pages repository name
+    } else {
+      setBaseUrl("") // Default to empty for both development and other production environments
+    }
+  }, [])
+
+  // Helper function to handle image loading errors
+  const handleImageError = (e, fallbackPath) => {
+    e.target.onerror = null // Prevent infinite loop
+    e.target.src = fallbackPath
+  }
+
   return (
     <>
       <Navbar />
       <div className="about-page">
+        {/* Rest of the component remains exactly the same */}
         <section className="hero bg-primary text-white py-5">
           <div className="container">
             <h1 className="display-4 fw-bold">About MoCon</h1>
@@ -21,29 +43,31 @@ const About = () => {
               <div className="col-md-6">
                 <h2 className="mb-4">Our Story</h2>
                 <p>
-                  MoCon was established in 2025 by a seasoned financial risk consultant and former IT audit professional.
-                  After a decade of guiding companies through financial statement audits and developing robust control frameworks,
-                  he recognized the potential of LLMs and AI to streamline audit processes, mitigate financial controls risk, and foster sustainability.
-                  His innovative solution gave rise to Modern Controls – MoCon.
+                  MoCon was established in 2025 by a seasoned financial risk consultant and former IT audit
+                  professional. After a decade of guiding companies through financial statement audits and developing
+                  robust control frameworks, he recognized the potential of LLMs and AI to streamline audit processes,
+                  mitigate financial controls risk, and foster sustainability. His innovative solution gave rise to
+                  Modern Controls – MoCon.
                 </p>
                 <p>
-                  Soon, MoCon will be trusted by companies worldwide, from startups to Fortune 500 enterprises,
-                  to streamline their financial statement audits and compliance efforts and reduce 2nd line of defense efforts.
+                  Soon, MoCon will be trusted by companies worldwide, from startups to Fortune 500 enterprises, to
+                  streamline their financial statement audits and compliance efforts and reduce 2nd line of defense
+                  efforts.
                 </p>
               </div>
               <div className="col-md-6 text-center">
-                <img 
-                  src={`${baseUrl}/images/MoconLogoUse.png`} 
+                <img
+                  src={`${baseUrl}/images/MoconLogoUse.png`}
+                  onError={(e) => handleImageError(e, "/images/MoconLogoUse.png")}
                   alt="MoCon Logo"
                   className="img-fluid"
-                  style={{ maxWidth: "250px", height: "auto" }} 
+                  style={{ maxWidth: "250px", height: "auto" }}
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* ✅ Adjusted Background for Readability */}
         <section className="our-values py-5 bg-dark text-white">
           <div className="container">
             <h2 className="text-center mb-5">Our Values</h2>
@@ -72,13 +96,39 @@ const About = () => {
             <h2 className="text-center mb-5">Meet Our Leadership</h2>
             <div className="row g-4">
               {[
-                { name: "A Wyer", role: "CEO & Founder", img: `${baseUrl}/images/Wyer_About.png` },
-                { name: "Fable", role: "Chief Technology Officer", img: `${baseUrl}/images/Fable_About.png` },
-                { name: "Benson", role: "Chief Compliance Officer", img: `${baseUrl}/images/Benson_About.png` },                
+                {
+                  name: "A Wyer",
+                  role: "CEO & Founder",
+                  img: process.env.PUBLIC_URL + "/images/Wyer_About.png",
+                  fallback: "/images/Wyer_About.png",
+                },
+                {
+                  name: "Fable",
+                  role: "Chief Technology Officer",
+                  img: process.env.PUBLIC_URL + "/images/Fable_About.png",
+                  fallback: "/images/Fable_About.png",
+                },
+                {
+                  name: "Benson",
+                  role: "Chief Compliance Officer",
+                  img: process.env.PUBLIC_URL + "/images/Benson_About.png",
+                  fallback: "/images/Benson_About.png",
+                },
               ].map((leader, index) => (
                 <div key={index} className="col-md-4">
                   <div className="card h-100 border-0 shadow-sm">
-                    <img src={leader.img} height="300" width="300" alt={leader.name} className="card-img-top" />
+                    <img
+                      src={leader.img || "/placeholder.svg"}
+                      onError={(e) => {
+                        console.error(`Image load failed for ${leader.name}, trying fallback`)
+                        e.target.onerror = null
+                        e.target.src = leader.fallback
+                      }}
+                      alt={leader.name}
+                      className="card-img-top"
+                      loading="eager"
+                      style={{ objectFit: "cover" }}
+                    />
                     <div className="card-body text-center">
                       <h3 className="card-title">{leader.name}</h3>
                       <p className="card-text">{leader.role}</p>
@@ -100,7 +150,14 @@ const About = () => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default About;
+export default About
+
+
+
+
+
+
+
